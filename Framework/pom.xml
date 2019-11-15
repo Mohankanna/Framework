@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.10</version>
+			<version>7.0.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -43,30 +43,24 @@
 	</dependencies>
 
 	<build>
-
-
-		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M3</version>
-				<configuration>
-				
-					<suiteXmlFiles>
-						<suiteXmlFile>XMLFiles/${xmlFiles}</suiteXmlFile>
-					</suiteXmlFiles>
-					
-					<systemPropertyVariables>
-						<executionBrowser>${browser}</executionBrowser>
-						<appURL>${urlToBeTested}</appURL>
-					</systemPropertyVariables>
-
-				</configuration>
-			</plugin>
-
-		</plugins>
-
+	<plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>XMLfiles/${xmlFiles}</suiteXmlFile>
+          </suiteXmlFiles>
+          
+          <systemPropertyVariables>
+            <ExecuteBrowser>{$BrowserName}</ExecuteBrowser>
+            <ExcuteUrl>{$urlTesting}</ExcuteUrl>
+          </systemPropertyVariables>
+          
+        </configuration>
+      </plugin>
+</plugins>
 	</build>
 
 </project>
